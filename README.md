@@ -1,5 +1,5 @@
 <span style="display:block;text-align:center">
-![alt text](https://github.com/kemalbayindir/dupfifi/profile.png "Duplicate File Finder")
+![alt text](https://github.com/kemalbayindir/dupfifi/blob/main/profile.jpeg "Duplicate File Finder")
 </span>
 
 # DUPLICATE FILE FINDER
