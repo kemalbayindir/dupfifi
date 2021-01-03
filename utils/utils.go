@@ -45,7 +45,7 @@ func Hash(path string) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-// Contains check variables
+// Contains check strings in an array
 func Contains(s []string, str string) bool {
 	for _, v := range s {
 		if v == str {
@@ -56,6 +56,7 @@ func Contains(s []string, str string) bool {
 	return false
 }
 
+// SuitableCheck controls path and extensions of file via excludeXXX and includeXXX variables
 func SuitableCheck(path string, name string) bool {
 	ext := filepath.Ext(path)
 	if !Contains(includedExtensions, ext) {
@@ -73,6 +74,7 @@ func SuitableCheck(path string, name string) bool {
 	return true
 }
 
+// Counts scans path and gives directory and file count for the path recursively
 func Counts(scanPath string) (int, int) {
 	var dirCount = 0
 	var fileCount = 0
@@ -100,12 +102,8 @@ func Counts(scanPath string) (int, int) {
 	return dirCount, fileCount
 }
 
-func AddToCompares(compares map[string][]entity.FilePath, hash string, filepath string) {
-
-	compares[hash] = append(compares[hash], entity.FilePath{Path: filepath})
-}
-
-func ComparesAsJson(compares map[string][]entity.FilePath) string {
+//ComparesAsJSON dump map as JSON
+func ComparesAsJSON(compares map[string][]entity.FilePath) string {
 	jsonString, _ := json.MarshalIndent(compares, "", "    ")
 
 	return string(jsonString)

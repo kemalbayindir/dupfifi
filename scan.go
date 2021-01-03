@@ -68,7 +68,7 @@ func main() {
 
 				totalSize = totalSize + info.Size()
 
-				utils.AddToCompares(compares, hashValue, path)
+				compares[hash] = append(compares[hashValue], entity.FilePath{Path: path})
 
 				bar.Increment()
 				time.Sleep(time.Millisecond)
@@ -89,7 +89,7 @@ func main() {
 
 	fmt.Printf("\n LIST OF COMPARES")
 	fmt.Printf("\n ********************** \n")
-	jsonStr := utils.ComparesAsJson(compares)
+	jsonStr := utils.ComparesAsJSON(compares)
 	fmt.Println(jsonStr)
 
 	//http.HandleFunc("/listdir", listdir)
