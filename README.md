@@ -26,3 +26,4 @@ Base search folder, root folder for scan operations
 - Serve managament UI to arrange files or custom searchs
 - Search specific folder and files in a target folder
 - Commandline arguments for above functions
+- Executable build, cross platform builds
