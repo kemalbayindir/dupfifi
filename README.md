@@ -1,3 +1,7 @@
+<span style="display:block;text-align:center">
+![alt text](https://github.com/kemalbayindir/dupfifi/profile.png "Duplicate File Finder")
+</span>
+
 # DUPLICATE FILE FINDER
 Duplicate File Finder (DUPFIFI) searches duplicate files and exposes found similar files (by hash) as JSON.
 
