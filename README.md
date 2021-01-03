@@ -53,3 +53,4 @@ Sample JSON result
 - Search specific folder and files in a target folder
 - Commandline arguments for above functions
 - Executable build, cross platform builds
+- Use go routines to speedup
