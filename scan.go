@@ -68,7 +68,7 @@ func main() {
 
 				totalSize = totalSize + info.Size()
 
-				compares[hash] = append(compares[hashValue], entity.FilePath{Path: path})
+				compares[hashValue] = append(compares[hashValue], entity.FilePath{Path: path})
 
 				bar.Increment()
 				time.Sleep(time.Millisecond)
