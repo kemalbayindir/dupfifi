@@ -4,25 +4,24 @@
 
 </div>
 
-# DUPLICATE FILE FINDER
+# **Dup**licate **Fi**le **Fi**nder
 Duplicate File Finder (DUPFIFI) searches duplicate files and exposes found similar files (by hash) as JSON.
 
 
 
-## .env
+## Parameters
 
-Searchable types
-> VALID_EXT=.png,.jpg,.jpeg,.bmp
+-excludedDirs string
+>    Not allowed directories to scan process. Please use comma to seperate extensions. (default ".git,node_modules")
 
-Dont search these folders
-> EXCLUDE_DIR=.git
+-excludedFiles string
+>    Not allowed files to scan process. Please use comma to seperate extensions. (default ".DS_Store")
 
-Dont search these files
-> EXCLUDE_FILE=.DS_Store
+-includedExtensions string
+>    Allowed dile extension(s) during scan process. Please use comma to seperate extensions. (default ".png,.jpg,.jpeg,.bmp")
 
-Base search folder, root folder for scan operations
-> SCAN_PATH="/Users/kemalbayindir/WORKSPACE/"
-
+-scanPath string
+>    Target path to scan process (default "./")
 
 # SEARCH RESULT
 Sample JSON result
@@ -48,9 +47,9 @@ Sample JSON result
 ```
 
 ## TODO
-- Generate human readable html report
-- Serve managament UI to arrange files or custom searchs
-- Search specific folder and files in a target folder
-- Commandline arguments for above functions
-- Executable build, cross platform builds
-- Use go routines to speedup
+- [ ] Generate human readable html report
+- [ ] Serve managament UI to arrange files or custom searchs
+- [ ] Search specific folder and files in a target folder
+- [x] Commandline argument support
+- [ ] Executable build, cross platform builds
+- [ ] Use go routines to speedup

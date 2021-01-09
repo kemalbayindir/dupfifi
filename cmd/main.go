@@ -1,41 +1,37 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	_ "net/http/pprof"
-	"os"
 	"strings"
 
 	"github.com/cheggaaa/pb"
 
 	"github.com/kemalbayindir/dupfifi/scan"
-
-	"github.com/subosito/gotenv"
 )
 
-// scanPath variable for scan
-var scanPath = ""
-
-var includedExtensions []string
-var excludedDirs []string
-var excludedFiles []string
-
-var compares map[string][]scan.FilePath
-
-func init() {
-
-	gotenv.Load()
-
-	includedExtensions = strings.Split(os.Getenv("VALID_EXT"), ",")
-	excludedDirs = strings.Split(os.Getenv("EXCLUDE_DIR"), ",")
-	excludedFiles = strings.Split(os.Getenv("EXCLUDE_FILE"), ",")
-	scanPath = os.Getenv("SCAN_PATH")
-
-	compares = make(map[string][]scan.FilePath)
-}
-
 func main() {
+
+	flagScanPath := flag.String("scanPath", "./", "Target path to scan process")
+	flagIncludedExtensions := flag.String("includedExtensions", ".png,.jpg,.jpeg,.bmp", "Allowed dile extension(s) during scan process. Please use comma to seperate extensions.")
+	flagExcludedDirs := flag.String("excludedDirs", ".git,node_modules", "Not allowed directories to scan process. Please use comma to seperate extensions.")
+	flagExcludedFiles := flag.String("excludedFiles", ".DS_Store", "Not allowed files to scan process. Please use comma to seperate extensions.")
+	flag.Parse()
+
+	includedExtensions := strings.Split(*flagIncludedExtensions, ",")
+	excludedDirs := strings.Split(*flagExcludedDirs, ",")
+	excludedFiles := strings.Split(*flagExcludedFiles, ",")
+	scanPath := *flagScanPath
+
+	//fmt.Println("Process Parameters")
+	//fmt.Println("------------------")
+	//fmt.Println("scanPath:", scanPath)
+	//fmt.Println("includedExtensions:", includedExtensions)
+	//fmt.Println("excludedDirs:", excludedDirs)
+	//fmt.Println("excludedFiles:", excludedFiles)
+
 	comparator := scan.NewComparator(includedExtensions, excludedDirs, excludedFiles)
 
 	fmt.Printf("\nScanning Folder \t: %v \n", scanPath)

@@ -7,12 +7,14 @@ import (
 	"path/filepath"
 )
 
+// Comparator linked with comparation functions
 type Comparator struct {
 	includedExtensions []string
 	excludedDirs       []string
 	excludedFiles      []string
 }
 
+// NewComparator gives new comparator implementation by filters
 func NewComparator(includedExtensions []string, excludedDirs []string, excludedFiles []string) *Comparator {
 	return &Comparator{includedExtensions: includedExtensions, excludedDirs: excludedDirs, excludedFiles: excludedFiles}
 }
