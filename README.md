@@ -49,7 +49,7 @@ Sample JSON result
 ## TODO
 - [ ] Generate human readable html report
 - [ ] Serve managament UI to arrange files or custom searchs
-- [ ] Search specific folder and files in a target folder
+- [x] Customize search process by custom filters (exclude/include dir/extension)
 - [x] Commandline argument support
 - [ ] Executable build, cross platform builds
 - [ ] Use go routines to speedup
